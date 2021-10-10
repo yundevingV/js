@@ -1,2 +1,3 @@
-# js
+# JAVASCRIPT
+
 My javascript NOTEPAD
