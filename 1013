@@ -1,0 +1,101 @@
+#콜백 함수
+
+#콜백 함수는 다른 함수에 인수로 전달된 함수이며 외부 함수 내부에서 호출되어 일종의 루틴이나 작업을 완료합니다.
+#라고 합니다! 
+#출처 : https://developer.mozilla.org/en-US/docs/Glossary/Callback_function
+
+function greeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(greeting);
+
+#processUser 의 매겨변수로 callback을 인자로 받고 있다. 또 callback은 변수 name을 저장한다.
+#processUserInput(greeting);을 통해서 greeting이 processUser의 매개변수인 callback을 전달된다.
+
+#querySelector()
+#querySelector는 html태그와 class, id 모두 가져올 수 있는 메소드 입니다.
+#단 중복된 이름을 가지고 있는경우 제일 처음요소를 불러 올 수 있습니다.
+
+<body>
+<div id = "test1">
+<h1>CLASS</h1>
+</div>
+<div class = "test2">
+<h1>ID</h1>
+</div>
+</body> 
+
+<script>
+let id = document.querySelector("#test1"); 
+let classtest = document.querySelector(".test2"); 
+
+id.style.color = "blue";
+classtest.style.color = "red";
+classtest.style.background = "blue";
+</script>
+
+#id로 test1을 가진 div태그의 글자색을 바꿔주고 class로 test2를 가진 div태그의 글자색을 바꿔줍니다.
+
+<body>
+<div id = "test1">
+<h1 id = "h1">CLASS1</h1>
+<h1 id = "h2">CLASS2</h1>
+</div>
+</body>
+
+<script>
+let id = document.querySelector("#test1"); 
+let id1 = document.querySelector("#test1 #h1"); 
+let id2 = document.querySelector("#test1 #h2"); 
+id.style.color = "blue";
+id1.style.color = "cyan";
+id2.style.color = "brown";
+</script>
+
+#각각의 ID나 CLASS에다가 더 상세하게(?) 요소를 선택할 수 있습니다.
+#앞서 다뤘던 getElementById()메서드와 유사하다. 그런데 다른 점이 있다.
+#querySelector는 좀 더 구체적으로 요소를 지정할 수 있다.
+
+#forEach() 활용
+#forEach 반복문은 Array객체에서 사용가능한 메서드이다.
+
+let array = ['apple','banana','circle','door']; 
+array.forEach(function(item,index,array){
+console.log(item,index,array[index]); })
+
+#forEach 인자로 callbakc함수를 등록할 수 있고 배열들의 값과 인덱스값을 반복해서 출력시켜줍니다.
+
+#for in() 활용
+#객체의 key 값과 value 값을 출력시킵니다.
+
+let item = {
+  a: 'apple',
+  b: 'banana',
+  c: 'circle'
+};
+for (let key in item){
+  console.log(key,item[key]);
+}
+
+#for of() 활용
+let item = [10, 20, 30]; 
+for (let i of item)
+ {
+ console.log(i);  
+ }
+ 
+ #반복 가능한 객체 (Array,Map,Set...등) 에 대해 반복하고 개별 속성값에 대해 실행 되는 문이 있는
+ #사용자 정의 반복 후크를 호출하는 루프를 생성합니다.
+ 
+let string = "apple";
+for (let i of string) {
+  console.log(i);
+}
+
+#문자열에서도 적용가능합니다.
