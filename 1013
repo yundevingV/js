@@ -1,3 +1,5 @@
+#CallbackFunction #querySelector() #forEach() #for in() #for of() 
+
 #콜백 함수
 
 #콜백 함수는 다른 함수에 인수로 전달된 함수이며 외부 함수 내부에서 호출되어 일종의 루틴이나 작업을 완료합니다.
