@@ -1,3 +1,54 @@
+#객체 (Object)
+
+#JavaScript는 많은 객체로 이루어져있다.
+#객체란 여러 속성을 하나의 변수에 저장하는 것이다.
+
+let fruit = new Object();
+let fruit = {name : "apple",
+             color : red};
+#이런 방식으로 객체를 생성 할 수 있다.
+
+#객체에는 크게 3가지로 분류 할 수 있다.
+
+#JavaScript 내장객체, 브라우저 내장객체, 사용자 정의객체
+#오늘 해볼것은 사용자 정의객체에 대해 해볼 것 이다.
+
+#프로퍼티 (Property)
+#뜻대로 객체의 속성을 나타내는 것이다. 크게 두 가지로 나뉜다.
+#key값과 value값을 가진다.
+
+let fruit = {name : "apple",
+             color : "red"
+             };
+#여기에선 name과 color가 key값이고 value는 apple과 red이다.
+
+#메소드 (Method)
+#객체가 가지고 있는 동작이다.
+
+
+#객체생성방법
+
+let fruit = {name : "apple",
+             color : "red",
+             price : 5000
+             };
+#이런식으로 한번에 만들 수 있고
+let fruit = new Object();
+fruit.name = "apple";
+fruit.color = "red";
+fruit.price = 5000;
+#이렇게도 선언 할 수 있지만 첫번째방법이 훨씬 더 쉽게 간단하다.
+
+#객체 접근 방법
+let fruit = {name : "apple",
+             color : "red",
+             price : 5000
+             };
+let fruitname = fruit.name;
+let fruitcolor fruit.color;
+let fruitprice = fruit.price;
+#이렇게 접근하면 된다.
+
 #reduce함수 활용
 
 array.reduce(callbackFunction(previousValue, currentValue, currentIndex, array1), initialValue);
