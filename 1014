@@ -168,5 +168,62 @@ let fruit = [{name : "Apple", price: 500},
     
 #thisArg 매개변수를 활용해서 3과 7사이의 숫자를 출력하는 코드입니다.
 
+#화살표 함수 (Arrow function)
 
- 
+#일반함수
+let hello = function () {document.write("hello")};
+#화살표 함수
+let hello = () => {document.write("hello")};
+let cal = (a,b) => {return a+b } ;
+#만약 return 값을 반환하지 않으면 undefied를 반환하게됩니다.
+
+let num = [2,5,8];
+let oddNum = num.filter( x => (x%2) !== 0);
+console.log(oddNum);
+#콜백함수에서도 사용 할 수 있습니다.
+
+#addEventListener()
+
+#addEventListener은 이벤트를 등록 할 수 있다.
+
+<body>
+<button id="a">Click</button>
+</body>
+<script>
+let hello = document.getElementById('a');
+hello.addEventListener('click',function(e){
+alert("Hello");
+})
+hello.addEventListener('click',function(e){
+alert("Hello2");
+});
+</script>
+
+#hello라는 이벤트를 만들어서 id로 a를 가진 요소가 alert("Hello")를
+#반환하게 해주는 코드이다.
+#하나의 이벤트 대상의 여러가지 이벤트 타입 리스너를 등록할 수 있다.
+
+<body>
+
+<button id="a1">Click</button>
+<button id="a2">Click</button>
+</body>
+<script>
+let hello1 = document.getElementById('a1');
+        let hello2 = document.getElementById('a2');
+        
+        function btn(e){
+            switch(e.target.id){
+                case 'a1':
+                    alert('a1');
+                    break;
+                    case 'a2':
+                        alert('a2')
+                        break;
+            }
+        }
+hello1.addEventListener('click',btn);
+hello2.addEventListener('click',btn);
+</script>
+
+#여러개의 요소를 하나의 리스너로 재사용할 수 있다.
