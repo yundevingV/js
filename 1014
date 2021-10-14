@@ -50,3 +50,72 @@ array.reduce(function(previousValue, currentValue,currentIndex,array1)
 },1)
 
 #밑에 return값을 매겨서 undifined를 없앨 수 있습니다.
+
+#filter 함수 활용
+
+let newArray = arr.filter(callbackFunction(element, index, array), thisArg);
+
+#매개변수는 콜백함수와 thisArg입니다.
+#element는 요소값.
+#index는 요소의 인덱스.
+#array 사용되는 배열
+
+let array = ['apple','banana','circle'];
+let newarray = array.filter(function(element, index, array){
+    console.log(element);
+    console.log(index);
+    console.log(array);
+    })
+#차례대로 출력됩니다.
+
+#JSON 구조
+
+#JSON은 자바스크립트의 객체 표기법으로 파생된 부분 집합입니다.
+#JSON의 구조 : "데이터이름" : "값" 입니다.
+
+let fruit = [{name : "Apple", price: 500},
+                     {name : "Banana",price: 5000},
+                     {name : "Watermelon", price: 50000}];
+#이런식으로 json 구조를 만들 수 있습니다
+
+(function test(){
+        let fruit = [{name : "Apple", price: 500},
+                     {name : "Banana",price: 5000},
+                     {name : "Watermelon", price: 50000}
+                    ];
+        let newfruit = fruit.filter(function(element){
+            console.log(element);
+            return element.name == "Apple";
+        });
+        console.log(newfruit);
+        })();
+        
+#이 코드를 통해 name에 apple이라는 과일을찾을 수 있습니다.
+
+(function test(){
+        let fruit = [{name : "Apple", price: 500},
+                     {name : "Banana",price: 5000},
+                     {name : "Watermelon", price: 50000}
+                    ];
+        let newfruit = fruit.filter(function(element){
+            console.log(element);
+            return element.price >= 5000;
+        });
+        console.log(newfruit);
+        })();
+ #이 코드를 통해서 가격이 5000원 이상인 과일을 찾아낼 수 있습니다.
+ 
+ (function test(){
+        let array = [1,2,3,4,5,7,10];
+        let arg = {min : 3, max : 8};
+        function arraytest(value){
+            return value>=this.min && value<=this.max;
+        }
+       let newarray = array.filter(arraytest, arg);
+       console.log(newarray);
+    })();
+    
+#thisArg 매개변수를 활용해서 3과 7사이의 숫자를 출력하는 코드입니다.
+
+
+ 
