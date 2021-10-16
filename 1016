@@ -1,0 +1,37 @@
+#AJAX
+#AJAX란 ?
+
+#Asynchronous JavaScript and XML의 약자이다. 비동기적인 JAVASCRIPT와 XML이라고 해석할 수 있다.
+#AJAX는 비동적으로 JSON과 XMS의 데이터를 받아오는 기능을 합니다.
+
+#동기적과 비동기적은 동기적은 어느일을 순서대로 진행하는 것이고 비동기적은 어느일을 진행할때 
+#일을 완료하지않았는데도 다른 일을 수행하는 것 정도로 알고있으면 될거같다.
+
+#fetch 를 통해 ajax 데이터를 가져와보겠습니다.
+
+<html>
+  <body>
+    <button onclick="getUser()">클릭</button>
+    <div id="userInfo"></div>
+  </body>
+</html>
+#userInfo라는 id를 가진 div 와 button에 onclick을 달아줍니다.
+
+#fetch( URL, 설정 ).then( callback함수 ).catch( callback함수)
+#사용형식은 이와 같습니다.
+
+<script>
+function getUser() {
+        
+        const config = {
+          method: "get"
+        };
+        
+        fetch("https://jsonplaceholder.typicode.com/users/1", config)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log(error));
+      }
+</script>
+
+#출처 https://codingbroker.tistory.com/62?category=799560
