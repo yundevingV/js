@@ -1,0 +1,121 @@
+#getJSON 
+#JSON형태의 데이터를 가지고 오기위해 jQuery의 메소드이다.
+#앞에 배웠던 fetch()는 비동기식으로 처리하는것이도 getJSON은 동기식으로 처리한다.
+
+$.getJSON(URL, fuction(data){
+  let fruits = data.eating.fruits;
+  console.log(fruits);
+  }
+#json파일에 eating안에 fruits가 있으면 console.log를 통해 json에 있는 데이터를 출력하게된다.
+
+#toggle
+#토글이란? 하나의 값으로 부터 다른값으로 전환시켜주는 스위치(?)같은 역할을 하는것이다.
+ 
+ #add와 remove라는 메소드도 있는데 toggle 을 사용하면 add와 remove를 한번에 해결 할 수 있다.
+ 
+  <style>
+    .square {
+      display: inline-block ;
+      width :100px;
+      height : 100px;
+    }
+    .a {
+      background: skyblue;
+    }
+
+    .b {
+      background: pink;
+    }
+
+    .c {
+      background: beige;
+    }
+
+    .tog {
+      background : orange;
+    }
+</style>
+
+<body>
+<div class="square a">toggle </div>
+<div class="square b"> add </div>
+<div class="square c tog"> remove </div>
+</body>
+#일단 css와 html코드를 작성했다.
+#div 태그가 총 3개 있는데 첫번째는 class를 square와 a를 가지고 두번째는 square와 b를 가진다.
+#마지막 태그는 square, c와 tog를 가지고 있다.
+
+let a = document.querySelector('.a');
+let b = document.querySelector('.b');
+let b = document.querySelector('.c');
+
+
+a.addEventListener('click', function() {
+  a.classList.toggle('tog')}
+);
+  
+b.addEventListener('click', function() {
+  b.classList.add('tog');
+});
+
+c.addEventListener('click', function() {
+  c.classList.remove('tog');
+});
+#처음에 a에 클릭이벤트를 추가해주고 tog라는 css스타일을 불러오고 제거합니다.
+#여러번 클릭해도 색을 변합니다.
+
+#b에는 add이기때문에 버튼을 클릭하는 순간 <div class="square b tog"> add </div>가 됩니다.
+#한번 더 클릭하면 실행되지않는데 이게 toggle하고 차이점이다.
+
+#c는 tog를 제거해주는거가 때문에 <div class="square c"> remove </div>가 되어 색이 바뀌게 됩니다.
+
+#map() 활용
+
+#map()은 callbackFunction을 실행한 결과를 가지고 새로운 배열을 만들어 주는 역할을 합니다.
+
+array.map(callbackFunction(currentValue, index, array), thisArg)
+#라는 구문을 가지고 있습니다.
+#지난번에 배운 filter함수랑 비슷한 구조를 가지고있고 각 인수들도 같은 역할을 합니다.
+
+(function test(){
+   let Array = [1,2,3,4,5];
+   let mapArray = Array.map(function(currentValue,index,array){
+        console.log(currentValue);
+        console.log(index);
+        console.log(array);
+    });
+})();
+#코드를 보면 map()도 배열 차례대로 값을 출력해줍니다. 
+
+(function test(){
+   let Array = [1,2,3,4,5];
+   let sum = 0;
+   let mapArray = Array.map(function(currentValue,index,array){
+       return sum = sum + currentValue;
+    });
+    console.log(mapArray);
+})();
+#이 코드로 요소값들을 더해준 합이 나오는 배열을 만들 수 있습니다.
+
+#map함수로 object도 다시 만들 수 있습니다.
+
+(function test(){
+    let fruits = [{name : "apple", price : 50000000, color: "red"},
+                    {name : "banana", price : 1000000, color: "yellow"},
+                    {name : "pineapple", price : 3000000, color: "yellow"},
+                    ];
+ 
+    let newfruits = fruits.map(function(element, index, array){
+        console.log(element);
+          
+        let returnfruits = {}
+        returnfruits[element.name] = element.color;
+        return returnfruits;
+    });
+    console.log(newfruits);
+})(); 
+#를 사용해서 fruits object에 name과 color만 출력하게 할 수 있습니다.
+
+
+
+
