@@ -75,6 +75,7 @@ function test() {
 }
 setInterval(test, 3000);
 #이 코드는 test()라는 함수를 만들고 setInterval() 함수로 test라는 함수를 3초에 1번씩 실행시킨다는 코드입니다.
+#여기서 3000이 3초에 1번인 이유는 3000은 밀리세컨 이라는 단위를 가지기 때문입니다.
 
 function test1(a) {
   console.log('hell' + a);
