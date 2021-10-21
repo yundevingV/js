@@ -1,0 +1,38 @@
+confirm(), prompt(), 객체안에 함수넣기.
+#confirm()
+
+#confirm()을 사용하면 웹사이트내에 확인/취소를 누를수 있는 알림창을 뜨게 할 수 있다.
+#만약 여기서 확인을 누르게 되면 true를 취소를 하게되면 false 를 변환한다.
+
+if (confirm("카카오맵으로 이동하시겠습니까?") === true ) {
+	window.open("https://map.kakao.com/");
+} else {
+}
+#이 코드를 통해서 확인버튼을 누르면 https://map.kakao.com/로 이동하게됩니다.
+
+#prompt()
+
+#prompt는 데이터를 입력받을 수 있는 함수이다.
+
+let num = prompt("숫자를 입력하세요");
+
+let sum=0;
+for (let i=0; i<=num; i++)
+{
+	sum = sum + i;
+}
+console.log(sum);
+#이 코드를 통해서 지정된 숫자까지의 합을 구할 수 있다.
+
+#객체안의 함수만들기 
+
+let fruit = {
+  name: 'Apple',
+  color: 'Red',
+
+  taste() {
+    console.log("사과의 색은" + this.color);
+  }
+};
+fruit.taste();
+#객체 안에도 함수를 넣고 함수를 실행할 수 도 있다.
