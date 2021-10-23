@@ -1,0 +1,23 @@
+템플릿 리터럴 (Template Literal)
+
+#템플릿 리터럴
+
+#문자열 생성시 `(백틱, 1 옆에있는거)를 사용한다.
+
+let str = `hello world`;
+#이런식으로 문자열을 표현 할 수도 있지만,
+
+let str = `hello w
+o
+rld`;
+#`를 사용해 기존보다 줄바꿈을 쉽게 표현 할 수 있다.
+
+표현식 삽입(Expression interpolation)
+
+let fruit = `apple`;
+let price = 5000;
+let num = 10;
+
+console.log(`${fruit}의 개당 가격은 ${price}이며 총 가격은 ${price*num}입니다.`);
+#이런식으로 기존에 '' 보다 훨씬 편하게 작성 할 수 있습니다.
+
