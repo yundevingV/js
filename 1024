@@ -1,4 +1,4 @@
-템플릿 리터럴 (Template Literal)
+템플릿 리터럴 (Template Literal),canvas()
 
 #템플릿 리터럴
 
@@ -21,3 +21,41 @@ let num = 10;
 console.log(`${fruit}의 개당 가격은 ${price}이며 총 가격은 ${price*num}입니다.`);
 #이런식으로 기존에 '' 보다 훨씬 편하게 작성 할 수 있습니다.
 
+#canvas활용법
+
+#canvas는 영어뜻대로 웹페이지에 그림을 그릴 수 있다.
+
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+
+#이 코드에서 let canvas = document.getElementById('id');는 body내에 cnavas라는 id에 그림을 그린다는 뜻입니다.
+#이 코드에서 getContext()라는 메소드로 2d그림을 그린다는 뜻입니다. 3d도 그릴 수 있다고합니다...
+
+<body> 
+<canvas id="canvas"></canvas>
+</body>
+
+<script>
+let canvas = document.getElementById('id');
+let ctx = canvas.getContext('2d');
+ctx.fillStyle = "green";
+ctx.fillRect(10,10,200,100);
+</script>
+
+#이 코드를 활용해서 그림을 그릴 수 있습니다
+#fillStyle은 색을 넣는 것이고 fillRect는 차례대로 x좌표, y좌표, width, height 값입니다.
+#물론 여러개를 그릴 수 있습니다.
+
+var blue = {
+        x:10,
+        y:10,
+        width : 100,
+        height : 100,
+        draw(){
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(this.x,this.y,this.width,this.height);
+        }
+    }
+blue.draw();
+
+#이런식으로 객체를 생성해서 그림을 그릴 수 도 있다.
