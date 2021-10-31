@@ -1,0 +1,62 @@
+Prototype(프로토타입)
+
+#자바스크립트의 모든 객체는 Prototype(프로토타입)을 가지고 있다.
+#모든 객체는 Prototype(프로토타입)으로부터 프로퍼티(Property)와 메소드(Method)를 상속받는다.
+#상속되는 정보를 제공하는 객체를 Prototype(프로토타입)이라고 한다.
+
+let Fruit = new Fruit();
+#Fruit의 객체의 Prototype(프로토타입)은 Fruit.prototype 이다.
+
+#Prototype(프로토타입) 생성하기.
+
+function Fruit(name,color){
+  this.name = name;
+  this.color = color;
+}
+
+let apple = new Fruit("apple","red");
+console.log(apple);
+#이렇게 Prototype(프로토타입)을 생성할 수 있다.
+
+function Fruit(name,color){
+  this.name = name;
+  this.color = color;
+}
+
+let apple = new Fruit("apple","red");
+let banana = new Fruit("banana","yellow");
+console.log(apple);
+console.log(banana);
+#apple 이든 banana에도 계속해서 사용할 수 있다.
+
+#Prototype(프로토타입)에 프로퍼티(Property)와 메소드(Method) 추가하기.
+
+function Fruit(name,color,price){
+  this.name = name;
+  this.color = color;
+  this.price = 5000;
+  this.taste = function() {
+    return "good";
+};
+};
+
+let apple = new Fruit("apple","red");
+let banana = new Fruit("banana","yellow");
+console.log(apple);
+console.log(banana);
+console.log(apple.taste);
+#프로퍼티(property)를 추가할때는 기본값을 가지게 할 수 있다.
+
+function Fruit(name,color){
+  this.name = name;
+  this.color = color;
+};
+Fruit.prototype.price = "5000";
+Fruit.prototype.taste = function (){"good"};
+
+let apple = new Fruit("apple","red");
+let banana = new Fruit("banana","yellow");
+
+console.log(apple.price);
+console.log(apple.taste);
+#이런식으로도 추가할 수 있다.

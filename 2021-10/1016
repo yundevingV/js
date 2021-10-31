@@ -1,0 +1,62 @@
+#AJAX
+#AJAX란 ?
+
+#Asynchronous JavaScript and XML의 약자이다. 비동기적인 JAVASCRIPT와 XML이라고 해석할 수 있다.
+#AJAX는 비동적으로 JSON과 XMS의 데이터를 받아오는 기능을 합니다.
+
+#동기적과 비동기적은 동기적은 어느일을 순서대로 진행하는 것이고 비동기적은 어느일을 진행할때 
+#일을 완료하지않았는데도 다른 일을 수행하는 것 정도로 알고있으면 될거같다.
+
+#fetch 를 통해 ajax 데이터를 가져와보겠습니다.
+
+<html>
+  <body>
+    <button onclick="getUser()">클릭</button>
+    <div id="userInfo"></div>
+  </body>
+</html>
+#userInfo라는 id를 가진 div 와 button에 onclick을 달아줍니다.
+
+#fetch( URL, 설정 ).then( callback함수 ).catch( callback함수)
+#사용형식은 이와 같습니다.
+
+<script>
+function getUser() {
+        
+        const config = {
+          method: "get"
+        };
+        
+        fetch("https://jsonplaceholder.typicode.com/users/1", config)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log(error));
+      }
+</script>
+
+#fetch()에서는 url에 있는 정보를 get으로 불러오게됩니다.
+#then()은 response객체를 다루기위해 json형식으로 불러오게 되고 데이터를 출력합니다.
+#catch()는 만약 1,2번에서 오류가 있으면 그것을 출력합니다.
+
+ fetch("https://jsonplaceholder.typicode.com/users/1", config)
+          .then(response => response.json())
+          .then(data =>{
+            const name = document.createElement("div");
+            const email = document.createElement("div");
+            const phone = document.createElement("div");
+            name.innerHTML = data.name;
+            email.innerHTML = data.email;
+            phone.innerHTML = data.phone;
+            userInfo.appendChild(name);
+            userInfo.appendChild(email);
+            userInfo.appendChild(phone);
+          })
+          .catch(error => document.write(error));
+      }
+      
+#자기가 원하는 정보만 가져오고싶을때
+#위에 내용처럼 key값을 가져와서 div태그에 내용을 넣어주면 됩니다!
+#예를들어 name.innerHTML = data.name; name이라는 key에서 value를 가져옵니다.
+#userInfo.appendChild(name);를 이용해서 div태그의 id인 userInfo에 value값을 출력해주게합니다.
+
+#출처 https://codingbroker.tistory.com/62?category=799560

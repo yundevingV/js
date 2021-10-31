@@ -1,0 +1,36 @@
+#Number 객체들
+
+#isNaN 활용
+
+let str = "aa";
+let num =1.12315;
+console.log(isNaN(str));
+console.log(isNaN(num));
+
+#str은 숫자면 false를 반환하고 문자열인경우 true로 반환됩니다.
+
+#toFixed 활용
+
+let num =1.12315;
+console.log(num.toFixed(3));
+(1.123)
+#지정된 자리에서 반올림을 하는 메소드입니다.
+
+#toPrecision 활용
+
+let num =1.12315;
+console.log(num.toPrecision(3));
+(1.12)
+#지정된자리까지 반올림을 하는 메소드입니다.
+
+#인라인이벤트핸들러
+#태그에 작업 이벤트 핸들러를 달아서 실행하는 방식이다.
+
+<body>
+<p onclick="this.style.color='blue'">Click</p>
+</body>
+
+#Click을 누르게되면 p태그에 글자색이 blue로 바뀌게된다.
+
+#콜백함수를 활용하기
+
