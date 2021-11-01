@@ -1,2 +1,22 @@
-Local Stroage
+localStroage,sessionStorage
 
+#localStroage는 작은 정보(최대 5MB)를 저장할 수 있는 저장고이다.
+#웹페이지등을 나가도 저장되어있는 정보이다.
+
+localStorage.setItem("key", "value");
+#이런방식으로 key값과 value값을 저장할 수 있다.
+
+localStorage.setItem("fruit", "apple");
+#크롬 -> 관리자도구 -> 어플리케이션 -> 로컬스토리지 에 들어가면 저장한 데이터가 뜬다.
+
+localStorage.getItem("fruit");
+#getItem() 메소드를 이용하면 해당하는 key값의 value를 알려줍니다.
+
+localStorage.removeItem("fruit");
+#removeItem()메소드를 이용하면 해당하는 key값의 value를 삭제해줍니다.
+
+localStorage.clear();
+#모든 key의 value를 삭제해줍니다.
+
+#sessionStorage에서 사용되는 메소드는 localStroage와 비슷합니다.
+#localStorage와 달리 sessionStorage는 웹페이지에 나가게되면 정보를 모두 잃게 됩니다.
