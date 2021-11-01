@@ -1,4 +1,4 @@
-localStroage,sessionStorage
+localStroage, sessionStorage
 
 #localStroage는 작은 정보(최대 5MB)를 저장할 수 있는 저장고이다.
 #웹페이지등을 나가도 저장되어있는 정보이다.
