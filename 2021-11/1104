@@ -1,0 +1,42 @@
+keydown, keypress
+
+#keydown
+#keydown은 키를 눌를때 이벤트가 발생합니다.
+
+#keydown
+#keydown은 키를 땔때 이벤트가 발생합니다.
+
+#활용하기
+<body>
+<div id="a"></div>
+<h2>a를 눌러보세요!</h2>
+</body>
+#일단 id가 a인 div를 한개 만들어줍니다.
+
+<style>
+div {
+  background: black;
+  width:100px;
+  height:100px;
+}
+.keyevent {
+  background: blue;
+}
+</style>
+#css를 꾸며줍니다.
+
+<script>
+window.addEventListener("keydown", (e) => {
+  const key = document.getElementById(e.key);
+  if (key) key.classList.add("keyevent");
+});
+
+window.addEventListener("keyup", (e) => {
+  const key = document.getElementById(e.key);
+  if (key) key.classList.remove("keyevent");
+});
+</script>
+#js코드를 입력해줍니다. 
+#addEventListener로 keydown이벤트와 keyup 이벤트를 받아줬습니다.
+#그래서 키를 눌렀을때 css파일에 있는 keyevent를 불러와 배경색이 바뀌고
+#키를 때면 keyevent가 없어지게 됩니다.
