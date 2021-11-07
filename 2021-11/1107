@@ -1,0 +1,71 @@
+렉시컬 스코프, 클로저
+
+#렉시컬 스코프?
+#함수가 선언이 되는 위치에 따라 상위 스코프가 결정된다.
+#함수가 호출된 위치는 스코프 결정에 영향이 없다.
+
+var x = 1;
+
+function foo() {
+  var x = 10;
+  bar();
+}
+
+function bar() {
+  console.log(x);
+}
+
+foo(); // 1
+bar(); // 1
+#함수 foo();에 bar();를 호출했지만, bar();의 상위 스코프는 전역 스코프이므로 1이 출력된다.
+
+#Closire(클로저)?
+#함수가 자신이 선언됐을 때 환경을 기억해 환경 밖에서 호출해도 기억했던 환경에 접근할 수 있는 함수이다.
+
+예시1)
+
+function foo (){
+	var a = 2;
+  var b = 3;
+    
+    function bar () {
+    	console.log(a + b);
+    }
+    
+    return log;
+}
+
+var a = foo();
+a();
+
+#foo();에 a=2, b=3이라는 정보들이 저장된다.
+#bar();또한 a=2, b=3이라는 정보들을 가지고 있다.
+#전역 스코프에서 a에 foo()라는 함수를 할당한다.
+#전역 스코프에서 a를 실행하게 되면 bar()함수가 실행되는데 아무런 변수 선언이 안되어있는데 출력이 5가 된다.
+#왜냐하면 bar함수와 foo함수를 같이 생성 했기 때문에 foo에서 전에 선언했던 변수들을 기억해냈기때문이다.
+
+예시2)
+
+function first () {
+	var a = 1;
+
+	function second() {
+    	console.log(a);
+    } 
+    
+    foo (second);
+};
+  
+function foo (something) {
+  something();
+};
+  
+first();
+
+#first(), foo() 함수 선언을 한다. first는 a=1이라는 정보를 저장한다.
+#second() 함수는 a를 출력하고 foo(second)를 실행한다.
+#foo()함수는 매개변수로 something을 가지고 있는데 위에 있던 foo(second)을 기억해서 가져온다.
+#이게 가능한 이유는 외부에서 내부에서는 참조가 불가능하지만 내부에서 외부로는 참조가 가능하기 때문이다.
+#something; -> second();을 실행하게 된다.
+
+
