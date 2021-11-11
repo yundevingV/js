@@ -17,6 +17,7 @@ var ball = 0;
 while(count <= 10){
   var input = prompt('숫자를 입력하세요');
   var inputArray = input.split('');
+  //split('');을 해주면 '1' 이런식이 아닌 1 이런식으로 배열이 생성되어서 비교가 가능해짐.
   strike =0;
   ball = 0;
   count ++;
